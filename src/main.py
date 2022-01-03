@@ -6,6 +6,11 @@ app.config["DEBUG"] = False
 app.config['JSON_SORT_KEYS'] = False
 
 
+@app.route('/', methods=['GET'])
+def start():
+    return "<h1>Peter's Server</h1>"
+
+
 @app.route('/<committee>/<year>', methods=['GET'])
 def return_data(committee, year):
     data = ScrapeData(committee=committee, year=year)
