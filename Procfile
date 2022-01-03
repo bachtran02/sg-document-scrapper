@@ -1,1 +1,1 @@
-web: python src/main.py
+web: gunicorn app:src/main.py
