@@ -8,7 +8,7 @@ app.config['JSON_SORT_KEYS'] = False
 
 @app.route('/', methods=['GET'])
 def start():
-    return "<h1>Peter's Server</h1>"
+    return "<h1>Welcome</h1>"
 
 
 @app.route('/<committee>/<year>', methods=['GET'])

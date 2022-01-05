@@ -40,7 +40,11 @@ class ScrapeData:
             item_list = []
             e_list = ul.find_all("a", href=True)
             for e in e_list:
-                # print(e.text, url_header + e['href'])
+                if e.parent.parent.parent.name == "li":
+                    li = [x.strip() for x in e.parent.text.split(':', 1)]
+                    item_list.append({"title": li[0], "link": li[1]})
+                    print({"title": li[0], "link": li[1]})
+                    continue
                 item_list.append({"title": self.editString(e.text), "link": os.environ.get('URL_HEADER') + e['href']})
             data[header] = item_list
 
